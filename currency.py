@@ -42,7 +42,7 @@ def export_currencies(df):
     except:
         raise Exception("Failed to export currencies")
         
-def main():
+if __name__ == "__main__":
     logging.basicConfig(filename="currencies.log", level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
         
     try:
@@ -52,5 +52,3 @@ def main():
     except Exception as e:
         bail(str(e))
     logger.info("Currencies exported")
-
-main()

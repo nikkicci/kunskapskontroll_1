@@ -1,3 +1,4 @@
 .conda
-currencies.db
 currencies.log
+.pytest_cache
+__pycache__

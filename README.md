@@ -55,15 +55,15 @@ export_currencies(df)
 * The "currencies" table is created or replaced if it already exists.
 * If the database cannot be accessed or saved, an exception is thrown.
 
-## Headfunction: main()
+## Headfunction: main
 
 * Sets up logging to a file (currencies.log).
 * Run the three main functions:
 
     1. fetch_currencies(): Retrieves exchange rates from the API.
-    2. convert_currencies(payload): Converts the JSON data to a table.
-    3. export_currencies(df): Saves the table in an SQLite database.
-
-* If something goes wrong, the error is logged and the program exits.
+    2. convert_currencies(payload): Converts the JSON data to a DataFrame with correct datatypes.
+    3. export_currencies(df): Saves the DataFrame in an SQLite database.
+ 
+* If something goes wrong exceptions are raised and captured, the exception is logged and the program exits using the bail function.
 
 Upon successful execution, a message is logged that the currencies have been exported.
