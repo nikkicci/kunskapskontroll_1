@@ -68,6 +68,15 @@ export_currencies(df)
 
 Upon successful execution, a message is logged that the currencies have been exported.
 
+## Unit tests
+
+The only interesting function to test is the convert_currencies function. Two unit tests are provided in test_currency.py. 
+
+* test_convert_currencies_okdata(). Asserts that a DataFrame is returned on correct JSON. 
+* test_convert_currencies_badjson(). Asserts that an exception is raised on malformed JSON. 
+
+To run the test cases, run pytest in the terminal. 
+
 ## Screenshot Task Manager
 
 ![screenshot](taskmanager.png)
