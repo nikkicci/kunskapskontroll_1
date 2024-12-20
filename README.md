@@ -10,6 +10,7 @@ Python Debugger
 Python Environment Manager
 SQLite
 Conda Env Activator
+```
 
 ## Installation
 ```bash
@@ -17,6 +18,7 @@ conda create
 conda install pandas
 conda install requests
 ```
+
 ## Imported modules
 ```bash
 requests:   Used to make HTTP requests to an API.
@@ -26,6 +28,7 @@ sqlite3:    Provides access to SQLite databases to store the data.
 sys:        Used to terminate the program in case of critical errors.
 logging:    Used to log messages and errors.
 ```
+
 ## Functions
 ```bash
 bail(message)

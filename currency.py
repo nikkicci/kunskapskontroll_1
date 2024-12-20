@@ -18,9 +18,9 @@ def fetch_currencies():
     try:
         response = requests.get(url)
         if (response.status_code != 200):
-            bail(f"Failed to fetch currencies: {response.text}")
+            raise Exception(f"Failed to fetch currencies: {response.text}")
     except:
-        bail("Failed to fetch currencies")
+        raise Exception("Failed to fetch currencies")
         
     payload = json.loads(response.text)
     return payload
@@ -31,7 +31,7 @@ def convert_currencies(json_currencies):
 
         df["rate"] = pd.to_numeric(df["rate"])
     except:
-        bail("Unexpected data in json")
+        raise Exception("Unexpected data in json")
     return df 
 
 def export_currencies(df):
@@ -40,13 +40,17 @@ def export_currencies(df):
         df.to_sql("currencies", con, if_exists="replace")
         con.close()
     except:
-        bail("Failed to export currencies")
+        raise Exception("Failed to export currencies")
         
 def main():
     logging.basicConfig(filename="currencies.log", level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
-    payload = fetch_currencies()
-    df = convert_currencies(payload)
-    export_currencies(df)
+        
+    try:
+        payload = fetch_currencies()
+        df = convert_currencies(payload)
+        export_currencies(df)
+    except Exception as e:
+        bail(str(e))
     logger.info("Currencies exported")
 
 main()
