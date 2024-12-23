@@ -60,7 +60,7 @@ export_currencies(df)
 * Sets up logging to a file (currencies.log).
 * Run the three main functions:
 
-    1. fetch_currencies(): Retrieves exchange rates from the
+    1. fetch_currencies(): Retrieves exchange rates from the database.
     2. convert_currencies(payload): Converts the JSON data to a DataFrame with correct datatypes.
     3. export_currencies(df): Saves the DataFrame in an SQLite database.
  
